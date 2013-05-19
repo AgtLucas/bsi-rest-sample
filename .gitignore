@@ -1,3 +1,5 @@
 packages/
 CM/bin
 CM/obj
+CM/CM.csproj.user
+CM/CM.csproj
