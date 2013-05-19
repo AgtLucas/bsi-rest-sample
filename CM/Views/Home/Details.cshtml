@@ -1,71 +1,34 @@
 ﻿@model CM.Models.Contact
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes";
 }
 
-<h2>Details</h2>
+<section class="contact-details">
 
-<fieldset>
-    <legend>Contact</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Name)
+    <p class="display-field">
+        <span>Nome:</span> @Html.DisplayFor(model => model.Name)
+    </p>
+    <div class="display-field">
+        <span>Endereço:</span> @Html.DisplayFor(model => model.Address)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Address)
+        <span>Cidade:</span> @Html.DisplayFor(model => model.City)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Address)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.City)
+        <span>Estado:</span> @Html.DisplayFor(model => model.State)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.City)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.State)
+        <span>CEP:</span> @Html.DisplayFor(model => model.Zip)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.State)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Zip)
+        <span>Email:</span> <a href="mailto:@Html.DisplayFor(model => model.Email)">@Html.DisplayFor(model => model.Email)</a>
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Zip)
+        <span>Twitter:</span> <a href="http://twitter.com/@Html.DisplayFor(model => model.Twitter)" target="_blank">@@@Html.DisplayFor(model => model.Twitter)</a>
     </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Email)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Email)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Twitter)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Twitter)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Self)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Self)
-    </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.ContactId }) |
-    @Html.ActionLink("Back to List", "Index")
+</section>
+<p class="details-actions">
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ContactId }, new { @class = "button button-edit"})
+    @Html.ActionLink("Voltar", "Index", new { id = 1 }, new { @class = "button button-delete" })
 </p>

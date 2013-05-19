@@ -1,17 +1,12 @@
 ﻿@model CM.Models.Contact
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Adicionar Contato";
 }
-
-<h2>Create</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>Contact</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
@@ -68,23 +63,13 @@
             @Html.EditorFor(model => model.Twitter)
             @Html.ValidationMessageFor(model => model.Twitter)
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Self)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Self)
-            @Html.ValidationMessageFor(model => model.Self)
-        </div>
-
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Criar" class="button button-add button-save" />
         </p>
-    </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar", "Index", new { id = 1 }, new { @class = "button button-delete button-back" })
 </div>
 
 @section Scripts {

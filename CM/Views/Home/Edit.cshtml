@@ -1,17 +1,12 @@
 ﻿@model CM.Models.Contact
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar";
 }
-
-<h2>Edit</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>Contact</legend>
 
         @Html.HiddenFor(model => model.ContactId)
 
@@ -80,13 +75,12 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Salvar" class="button button-add button-save" />
         </p>
-    </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar", "Index", new { id = 1 }, new { @class = "button button-delete button-back" })
 </div>
 
 @section Scripts {

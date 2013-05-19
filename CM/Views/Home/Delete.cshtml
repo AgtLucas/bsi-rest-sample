@@ -1,75 +1,40 @@
 ﻿@model CM.Models.Contact
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Deletar";
 }
 
-<h2>Delete</h2>
+<h2>Tem certeza que deseja deletar este contato?</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>Contact</legend>
+<section class="contact-details">
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Name)
+    <p class="display-field">
+        <span>Nome:</span> @Html.DisplayFor(model => model.Name)
+    </p>
+    <div class="display-field">
+        <span>Endereço:</span> @Html.DisplayFor(model => model.Address)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Address)
+        <span>Cidade:</span> @Html.DisplayFor(model => model.City)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Address)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.City)
+        <span>Estado:</span> @Html.DisplayFor(model => model.State)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.City)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.State)
+        <span>CEP:</span> @Html.DisplayFor(model => model.Zip)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.State)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Zip)
+        <span>Email:</span> <a href="mailto:@Html.DisplayFor(model => model.Email)">@Html.DisplayFor(model => model.Email)</a>
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Zip)
+        <span>Twitter:</span> <a href="http://twitter.com/@Html.DisplayFor(model => model.Twitter)" target="_blank">@@@Html.DisplayFor(model => model.Twitter)</a>
     </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Email)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Email)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Twitter)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Twitter)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Self)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Self)
-    </div>
-</fieldset>
+</section>
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+    <p class="details-actions">
+        <input type="submit" value="Sim, deletar este contato" class="button button-add"/>
+        <br />
+        @Html.ActionLink("Ops, voltar!", "Index", new { id = 1 }, new { @class = "button button-delete" })
     </p>
 }

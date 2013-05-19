@@ -5,6 +5,7 @@
         <title>@ViewBag.Title - Gerenciador de Contatos</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
     </head>
@@ -12,19 +13,18 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("Gerenciador de Contatos", "Index", "Home")</p>
+                    <p class="site-title">@Html.ActionLink("Gerenciador de Contatos", "Index", "Home", new { id=1 }, new { @class = "site-title-link" })</p>
                 </div>
             </div>
         </header>
-        <div id="body">
             @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
+            <section class="content-wrapper main-content clearfix">
                 @RenderBody()
             </section>
-        </div>
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
+                    <hr />
                     <p>&copy; @DateTime.Now.Year - Gerenciador de Contatos</p>
                 </div>
             </div>
